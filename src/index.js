@@ -5,50 +5,45 @@ import App from "./App";
 import { createRoot } from "react-dom/client";
 
 //declare vars
-const firstBook = {
-	img: "https://images-na.ssl-images-amazon.com/images/I/8144Vic9C5L._AC_UL604_SR604,400_.jpg",
-	title: "I Love You to the Movie and Back",
-	author: "Amelia Hepworth",
-};
+const books = [
+	{
+		img: "https://images-na.ssl-images-amazon.com/images/I/8144Vic9C5L._AC_UL604_SR604,400_.jpg",
+		title: "I Love You to the Movie and Back",
+		author: "Amelia Hepworth",
+	},
 
-const secondBook = {
-	img: "https://m.media-amazon.com/images/I/71aLultW5EL._AC_UY218_.jpg",
-	title: "Our Class is a Family",
-	author: "Shannon Olsen",
-};
+	{
+		img: "https://m.media-amazon.com/images/I/71aLultW5EL._AC_UY218_.jpg",
+		title: "Our Class is a Family",
+		author: "Shannon Olsen",
+	},
+];
+
+
+const names = ["john", "peter", "susan"];
+const newName = names.map((name) => {
+	return <h1>{name}</h1>;
+});
+
+console.log(newName);
 
 const BookList = () => {
 	return (
 		<section className="booklist">
-			<Book
-				img={firstBook.img}
-				title={firstBook.title}
-				author={firstBook.author}>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, ad
-					error necessitatibus ducimus amet reprehenderit quibusdam aspernatur
-					eaque? Ipsum quia aliquid praesentium unde voluptate excepturi nam
-					delectus inventore ex at.
-				</p>
-			</Book>
-			<Book
-				img={secondBook.img}
-				title={secondBook.title}
-				author={secondBook.author}
-			/>
+			{newName}
 		</section>
 	);
 };
 
 const Book = (props) => {
 	//use special prop called children to show book description
-	const { img, title, author, children } = props;
+	const { img, title, author } = props;
 	return (
 		<article className="book">
 			<img src={img} alt="Childrens Book" />
 			<h1>{title}</h1>
 			<h4>{author}</h4>
-			{children}
+			
 		</article>
 	);
 };
