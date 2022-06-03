@@ -37,7 +37,8 @@ const BookList = () => {
 				//destructure items on book array
 				
 				return (
-					<Book key={book.id} book={book}></Book>
+					//use spread operator to pass items in book array to Book as props
+					<Book key={book.id} {...book}></Book>
 				);
 			})}
 		</section>
@@ -46,7 +47,7 @@ const BookList = () => {
 
 const Book = (props) => {
 	//use special prop called children to show book description
-	const { img, title, author } = props.book;
+	const { img, title, author } = props;
 	return (
 		<article className="book">
 			<img src={img} alt="Childrens Book" />
